@@ -6,7 +6,7 @@ const SideBar = ({islogin}) => {
  
 
   return (
-    <div className="h-screen bg-gray-800 text-white flex flex-col items-start px-4 py-8 w-64">
+    <div className="h-screen  bg-gray-800 text-white flex flex-col items-start px-4 py-8 w-64">
       <h2 className="text-3xl font-semibold  mb-5">Dashboard</h2>
       <nav>{!islogin ?<ul className="space-y-4">
         <li className="flex items-center gap-3 cursor-pointer hover:text-gray-300">

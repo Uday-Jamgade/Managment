@@ -18,7 +18,7 @@ const StudentDetail = () => {
   useEffect(() => {
     const fetchdata = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/api/v1/get-studentdetail/${Studentid}`, { headers });
+        const response = await axios.get(`https://managment-backend-5.onrender.com/api/v1/get-studentdetail/${Studentid}`, { headers });
         setDetail(response.data.data);
         setPayment(response.data.payment);
         
@@ -30,7 +30,7 @@ const StudentDetail = () => {
   }, []);
 
   const deleteStudent = async (id) => {
-    await axios.delete(`http://localhost:3000/api/v1/delete_student/${id}`, { headers });
+    await axios.delete(`https://managment-backend-5.onrender.com/api/v1/delete_student/${id}`, { headers });
     alert("Student has been deleted.");
     navigate("/students");
   };

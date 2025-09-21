@@ -2,6 +2,9 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+
+
+
 const Course = () => {
   const [course, setCourse] = useState([]);
   const navigate = useNavigate();
@@ -13,7 +16,8 @@ const Course = () => {
   useEffect(() => {
     const fetchdata = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/v1/get-all-course', { headers });
+        
+        const response = await axios.get('https://managment-backend-5.onrender.com/api/v1/get-all-course', { headers });
         setCourse(response.data.data);
         
       } catch (error) {

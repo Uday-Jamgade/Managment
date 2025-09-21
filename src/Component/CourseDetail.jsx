@@ -19,7 +19,7 @@ const CourseDetail = () => {
   useEffect(() => {
     const fetchdata = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/api/v1/detail-course/${Courseid}`, { headers });
+        const response = await axios.get(`https://managment-backend-5.onrender.com/api/v1/detail-course/${Courseid}`, { headers });
         setDetail(response.data.data);
         setStudent(response.data.students);
       } catch (error) {

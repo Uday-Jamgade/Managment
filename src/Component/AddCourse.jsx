@@ -43,7 +43,7 @@ const AddCourse = () => {
     e.preventDefault();
     try {
       if (!location.state) {
-        await axios.post("http://localhost:3000/api/v1/add_course", course, { headers });
+        await axios.post("https://managment-backend-5.onrender.com/api/v1/add_course", course, { headers });
         alert('Course added successfully!');
       setCourse({
     CourseName: '',
@@ -55,7 +55,7 @@ const AddCourse = () => {
       })
 
       } else {
-        await axios.put(`http://localhost:3000/api/v1/update_course/${location.state.courseDetail._id}`, course, { headers });
+        await axios.put(`https://managment-backend-5.onrender.com/api/v1/update_course/${location.state.courseDetail._id}`, course, { headers });
         alert("Course Updated Successfully!")
         navigate(`/course/${location.state.courseDetail._id}`);
       }

@@ -12,7 +12,7 @@ const Fees = () => {
   useEffect(()=>{
     const fetchdata = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/v1/payment-history', { headers });
+        const response = await axios.get('https://managment-backend-5.onrender.com/api/v1/payment-history', { headers });
         console.log(response.data.data);
         setPayments(response.data.data)
         

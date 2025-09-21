@@ -14,7 +14,7 @@ const Home = () => {
   useEffect(() => {
     const fetchdata = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/v1/Home", { headers });
+        const response = await axios.get("https://managment-backend-5.onrender.com/api/v1/Home", { headers });
         setData(response.data);
         console.log(response.data);
       } catch (error) {

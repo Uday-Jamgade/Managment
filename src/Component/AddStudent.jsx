@@ -37,7 +37,7 @@ const AddStudent = () => {
   useEffect(() => {
     const fetchdata = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/v1/get-all-course", { headers });
+        const response = await axios.get("https://managment-backend-5.onrender.com/api/v1/get-all-course", { headers });
         setCourselist(response.data.data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -54,7 +54,7 @@ const AddStudent = () => {
     e.preventDefault();
     try {
       if (!location.state) {
-        await axios.post("http://localhost:3000/api/v1/add-student", student, { headers });
+        await axios.post("https://managment-backend-5.onrender.com/api/v1/add-student", student, { headers });
         alert("Student added successfully!");
         setStudent({
           studentname: "",
@@ -65,7 +65,7 @@ const AddStudent = () => {
           Courseid: "",
         });
       } else {
-        await axios.put(`http://localhost:3000/api/v1/update_student/${location.state.detail._id}`, student, { headers });
+        await axios.put(`https://managment-backend-5.onrender.com/api/v1/update_student/${location.state.detail._id}`, student, { headers });
         alert("Student updated successfully!");
         navigate(`/student/${location.state.detail._id}`);
       }
@@ -110,6 +110,7 @@ const AddStudent = () => {
               onChange={handleChange}
               className="w-full border bg-gray-800 text-white border-gray-600 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-600"
             >
+            <option>Select Course</option>
               {courselist.map((item) => (
                 <option key={item._id} value={item._id}>{item.CourseName}</option>
               ))}
