@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Login = ({ setLogin }) => {
   const navigate = useNavigate();
@@ -23,13 +24,13 @@ const Login = ({ setLogin }) => {
       localStorage.setItem("id", response.data.id);
       localStorage.setItem("role", response.data.role);
       localStorage.setItem("token", response.data.token);
-      alert("Login successful!");
+      toast.success("Login successful!");
       navigate("/home")
 
       setFormData({ email: "", password: "" });
       setLogin(true);
     } catch (error) {
-      console.log(error);
+      toast.error("Login failed!");
     }
   };
 

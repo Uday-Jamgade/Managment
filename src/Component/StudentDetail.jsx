@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const StudentDetail = () => {
   const { Studentid } = useParams();
@@ -31,7 +32,7 @@ const StudentDetail = () => {
 
   const deleteStudent = async (id) => {
     await axios.delete(`https://managment-backend-5.onrender.com/api/v1/delete_student/${id}`, { headers });
-    alert("Student has been deleted.");
+    toast.success("Student has been deleted.");
     navigate("/students");
   };
 

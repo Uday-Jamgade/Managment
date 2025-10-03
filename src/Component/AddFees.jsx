@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const AddFees = () => {
   const [courselist, setCourselist] = useState([]);
@@ -40,9 +41,10 @@ const AddFees = () => {
     try {
       const response = await axios.post("http://localhost:3000/api/v1/add-fee", fees, { headers });
       console.log(response);
-      alert("Fees submitted successfully!");
+      toast.success("Fees submitted successfully!");
     } catch (error) {
       console.log(error);
+      toast.error("An error occurred!");
     }
   };
 

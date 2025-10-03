@@ -31,7 +31,7 @@ const CourseDetail = () => {
 
   const deleteCourse = async (id) => {
     await axios.delete(`http://localhost:3000/api/v1/delete_course/${id}`, { headers });
-    alert("Course is Deleted");
+    toast.success("Course is Deleted");
     navigate("/courses");
   };
 

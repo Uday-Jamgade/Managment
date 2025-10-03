@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const AddStudent = () => {
   const [courselist, setCourselist] = useState([]);
@@ -55,7 +56,7 @@ const AddStudent = () => {
     try {
       if (!location.state) {
         await axios.post("https://managment-backend-5.onrender.com/api/v1/add-student", student, { headers });
-        alert("Student added successfully!");
+        toast.success("Student added successfully!");
         setStudent({
           studentname: "",
           phone: "",
@@ -66,7 +67,7 @@ const AddStudent = () => {
         });
       } else {
         await axios.put(`https://managment-backend-5.onrender.com/api/v1/update_student/${location.state.detail._id}`, student, { headers });
-        alert("Student updated successfully!");
+        toast.success("Student updated successfully!");
         navigate(`/student/${location.state.detail._id}`);
       }
     } catch (error) {

@@ -36,7 +36,7 @@ const Signup = () => {
     }
 
     console.log("Form Data:", formData);
-    alert("Signup successful!");
+    toast.success("Signup successful!");
     setFormData({
       username: "",
       email: "",

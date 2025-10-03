@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const AddCourse = () => {
   const location = useLocation();
@@ -44,7 +45,7 @@ const AddCourse = () => {
     try {
       if (!location.state) {
         await axios.post("https://managment-backend-5.onrender.com/api/v1/add_course", course, { headers });
-        alert('Course added successfully!');
+        toast.success('Course added successfully!');
       setCourse({
     CourseName: '',
     price: '',
@@ -56,11 +57,11 @@ const AddCourse = () => {
 
       } else {
         await axios.put(`https://managment-backend-5.onrender.com/api/v1/update_course/${location.state.courseDetail._id}`, course, { headers });
-        alert("Course Updated Successfully!")
+        toast.success("Course Updated Successfully!")
         navigate(`/course/${location.state.courseDetail._id}`);
       }
     } catch (error) {
-      console.log(error);
+      toast.error("An error occurred!");
     }
   };
 
